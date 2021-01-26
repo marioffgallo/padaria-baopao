@@ -1,0 +1,38 @@
+<div>
+    <h2>Cadastro de filiais</h2>
+</div>
+
+<form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label>Filial</label>
+        <input type="text" class="form-control" [(ngModel)]="padaria.filial" name="filial" />
+    </div>
+
+    <div class="form-group">
+        <label>Endereço</label>
+        <input type="address" class="form-control" [(ngModel)]="padaria.endereco" name="endereco" />
+    </div>
+
+    <div class="form-group">
+        <label>Bairro</label>
+        <input type="neighborhood" class="form-control" [(ngModel)]="padaria.bairro" name="bairro" />
+    </div>
+
+    <div class="form-group">
+        <label>Cidade</label>
+        <input type="city" class="form-control" [(ngModel)]="padaria.cidade" name="cidade" />
+    </div>
+
+    <div class="form-group">
+        <label>Estado</label>
+        <input type="state" class="form-control" [(ngModel)]="padaria.estado" name="estado" />
+    </div>
+
+    <div class="form-group">
+        <label>CEP</label>
+        <input type="postal" class="form-control" [(ngModel)]="padaria.cep" name="cep" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
