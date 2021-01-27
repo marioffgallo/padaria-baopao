@@ -4,11 +4,11 @@ import { PadariaDataService } from '../shared/padaria-data.service';
 import { PadariaService } from '../shared/padaria.service';
 
 @Component({
-  selector: 'app-edit',
+  selector: 'love-padaria-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class PadariaEditComponent implements OnInit {
 
   padaria: Padaria = new Padaria;
   key: string = '';

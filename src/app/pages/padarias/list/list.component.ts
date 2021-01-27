@@ -9,7 +9,7 @@ import { PadariaService } from '../shared/padaria.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class PadariaListComponent implements OnInit {
   padarias!: Observable<any>;
 
   constructor(private padariaService: PadariaService,
