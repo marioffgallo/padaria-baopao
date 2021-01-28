@@ -26,6 +26,16 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.authService.isLoggedIn){
+      this.router.navigateByUrl('dashboard');
+    }
+  }
+
+  cancelarBtn() {
+    this.user = {
+      email: '',
+      password: ''
+    };
   }
 
 }

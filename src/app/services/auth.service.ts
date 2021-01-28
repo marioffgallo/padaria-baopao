@@ -16,7 +16,7 @@ export class AuthService {
 
       this.afAuth.authState.subscribe(user => {
         if (user) {
-          this.userDetails = user; // Setting up user data in userData var
+          this.userDetails = user;
           localStorage.setItem('user', JSON.stringify(this.userDetails));
           JSON.parse(localStorage.getItem('user'));
         } else {
@@ -29,9 +29,8 @@ export class AuthService {
   signInRegular(email: any, password: any) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
     .then(() => {
-      this.ngZone.run(() => {
-        this.router.navigate(['dashboard']);
-      })
+        console.log("Usuário autenticado com sucesso");
+        this.router.navigateByUrl('dashboard');
     }).catch((error) => {
       window.alert(error.message)
     })

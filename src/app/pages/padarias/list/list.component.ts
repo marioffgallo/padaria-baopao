@@ -7,7 +7,7 @@ import { PadariaService } from '../shared/padaria.service';
 @Component({
   selector: 'love-padaria-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.scss']
 })
 export class PadariaListComponent implements OnInit {
   padarias!: Observable<any>;

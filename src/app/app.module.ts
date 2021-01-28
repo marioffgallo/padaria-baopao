@@ -1,53 +1,57 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LayoutModule } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule} from '@angular/fire/auth';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+
+import { TopoComponent } from './shared/components/topo/topo.component';
+import { RodapeComponent } from './shared/components/rodape/rodape.component';
 import { environment } from '../environments/environment';
 
+
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './shared/material/material.module';
+import { PadariaModule } from './pages/padarias/padaria.module';
+import { ProdutosModule } from './pages/produtos/produtos.module';
 
 import { AppComponent } from './app.component';
-import { PadariaEditComponent } from './pages/padarias/edit/edit.component';
-import { PadariaListComponent } from './pages/padarias/list/list.component';
 import { DashboardComponent } from './pages/login/dashboard/dashboard.component';
 import { SignInComponent } from './pages/login/sign-in/sign-in.component';
-import { PadariaCoreComponent } from './pages/padarias/padaria-core/padaria-core.component';
-import { ProdutosCoreComponent } from './pages/produtos/produtos-core/produtos-core.component';
-import { ProdutoEditComponent } from './pages/produtos/edit/edit.component';
-import { ProdutoListComponent } from './pages/produtos/list/list.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    PadariaEditComponent,
-    PadariaListComponent,
+    TopoComponent,
+    RodapeComponent,
     DashboardComponent,
     SignInComponent,
-    PadariaCoreComponent,
-    ProdutosCoreComponent,
-    ProdutoEditComponent,
-    ProdutoListComponent
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    BrowserAnimationsModule,
+    LayoutModule,
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    RouterModule
+    RouterModule,
+    PadariaModule,
+    ProdutosModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

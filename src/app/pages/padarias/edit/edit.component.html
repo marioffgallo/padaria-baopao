@@ -1,38 +1,76 @@
+
 <div>
-    <h2>Cadastro de filiais</h2>
+    <mat-card>
+        <mat-card-title>Cadastro de Filiais</mat-card-title>
+        <mat-card-content>
+            <form autocomplete="off" (ngSubmit)="onSubmit()">
+
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput class="form-control" [(ngModel)]="padaria.filial" name="filial" placeholder="Filial">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput class="form-control" [(ngModel)]="padaria.endereco" name="endereco" placeholder="Endereço">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput class="form-control" [(ngModel)]="padaria.bairro" name="bairro" placeholder="Bairro">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput class="form-control" [(ngModel)]="padaria.cidade" name="cidade" placeholder="Cidade">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput class="form-control" [(ngModel)]="padaria.estado" name="estado" placeholder="Estado">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput class="form-control" [(ngModel)]="padaria.cep" name="cep" placeholder="CEP">
+                    </mat-form-field>
+                </p>
+
+                <!--<div class="form-group">
+                    <label>Filial</label>
+                    <input type="text" class="form-control" [(ngModel)]="padaria.filial" name="filial" />
+                </div>
+
+                <div class="form-group">
+                    <label>Endereço</label>
+                    <input type="address" class="form-control" [(ngModel)]="padaria.endereco" name="endereco" />
+                </div>
+
+                <div class="form-group">
+                    <label>Bairro</label>
+                    <input type="neighborhood" class="form-control" [(ngModel)]="padaria.bairro" name="bairro" />
+                </div>
+
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <input type="city" class="form-control" [(ngModel)]="padaria.cidade" name="cidade" />
+                </div>
+
+                <div class="form-group">
+                    <label>Estado</label>
+                    <input type="state" class="form-control" [(ngModel)]="padaria.estado" name="estado" />
+                </div>
+
+                <div class="form-group">
+                    <label>CEP</label>
+                    <input type="postal" class="form-control" [(ngModel)]="padaria.cep" name="cep" />
+                </div>-->
+
+            <mat-card-actions class="button">
+                <button type="submit" color="accent" mat-raised-button>Salvar</button>
+                <button type="reset" color="primary" mat-raised-button>Cancelar</button>
+            </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </div>
-
-<form (ngSubmit)="onSubmit()">
-
-    <div class="form-group">
-        <label>Filial</label>
-        <input type="text" class="form-control" [(ngModel)]="padaria.filial" name="filial" />
-    </div>
-
-    <div class="form-group">
-        <label>Endereço</label>
-        <input type="address" class="form-control" [(ngModel)]="padaria.endereco" name="endereco" />
-    </div>
-
-    <div class="form-group">
-        <label>Bairro</label>
-        <input type="neighborhood" class="form-control" [(ngModel)]="padaria.bairro" name="bairro" />
-    </div>
-
-    <div class="form-group">
-        <label>Cidade</label>
-        <input type="city" class="form-control" [(ngModel)]="padaria.cidade" name="cidade" />
-    </div>
-
-    <div class="form-group">
-        <label>Estado</label>
-        <input type="state" class="form-control" [(ngModel)]="padaria.estado" name="estado" />
-    </div>
-
-    <div class="form-group">
-        <label>CEP</label>
-        <input type="postal" class="form-control" [(ngModel)]="padaria.cep" name="cep" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
