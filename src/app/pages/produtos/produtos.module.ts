@@ -14,6 +14,9 @@ import { ProdutoListComponent } from './list/list.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule
+  ],
+  exports: [
+    ProdutoListComponent
   ]
 })
 export class ProdutosModule { }

@@ -1,13 +1,23 @@
-<div class="card mt-2" *ngFor="let produto of produtos | async">
-    <div class="card-body">
-        <h3 class="card-title">Produto: {{produto.titulo}}</h3>
-        <p class="card-text">Descrição: {{produto.descricao}}</p>
-        <p class="card-text">Código de Barras: {{produto.codBarra}}</p>
-        <p class="card-text">Validade: {{produto.validade}}</p>
-        <p class="card-text">Padaria: {{produto.padaria}}</p>
-    </div>
-    <div class="card-footer">
-        <button type="button" class="btn btn-default" (click)="edit(produto, produto.key)">Editar</button>
-        <button type="button" class="btn btn-danger ml-2" (click)="delete(produto.key)">Excluir</button>
-    </div>
+<mat-toolbar class="app-title">Produtos Cadastrados</mat-toolbar>
+
+<div class="home-content">
+    <mat-card class="home-card" *ngFor="let produto of produtos | async">
+        <div class="card-body">
+            <mat-card-header>
+                <div mat-card-avatar></div>
+                <mat-card-title>{{produto.titulo}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Descrição: {{produto.descricao}}</p>
+                <p>Código de Barras: {{produto.codBarra}}</p>            
+                <p>Validade: {{produto.validade}}</p>            
+                <p>Padaria: {{produto.padaria}}</p>
+                <p>Quantidade: {{produto.quantidade}}</p>
+            </mat-card-content>
+        </div>
+        <mat-card-actions *ngIf="router.url === '/produtos'">
+            <button color="accent" mat-raised-button (click)="edit(produto, produto.key)">Editar</button>
+            <button color="warn" mat-raised-button (click)="delete(produto.key)">Excluir</button>
+        </mat-card-actions>
+    </mat-card>
 </div>

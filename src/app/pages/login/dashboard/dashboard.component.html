@@ -1,6 +1,7 @@
+<!--
 <div class="container">
 
-  <!-- Main component for a primary marketing message or call to action -->
+
   <div class="jumbotron">
     <h1>Welcome to Dashboard</h1>
     <p>Testar dados dos usuários</p>
@@ -9,14 +10,14 @@
     </p>
   </div>
 
-      <!-- Main content -->
+
   <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="inner-adjust">
   
           <div class="pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">User Profile</h1>
           </div>
-          <!-- Show user data when logged in -->
+          
           <div class="row" *ngIf="authService.userDetails as user">
             <div class="col-md-12">
               <div class="media">
@@ -35,4 +36,20 @@
         </div>
     </main>
 
-</div> <!-- /container -->
+</div>
+-->
+
+<mat-card role="main">
+  <mat-card-title>Detalhes do Usuários</mat-card-title>
+  <img mat-card-image src="{{(userToDb.photoURL) ? userToDb.photoURL : '/assets/img/dummy-user.png'}}">
+  <mat-card-content>
+    <h1>Olá <strong>{{(userToDb.displayName) ? userToDb.displayName : 'Nome não definido'}}</strong></h1>
+    <p>User ID: <strong>{{userToDb.userUid}}</strong></p>
+    <p>Email: <strong>{{userToDb.email}}</strong></p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <love-padaria-list></love-padaria-list>
+  <love-produto-list></love-produto-list>
+</mat-card>

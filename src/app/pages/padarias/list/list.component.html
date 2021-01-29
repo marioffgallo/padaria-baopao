@@ -8,24 +8,14 @@
                 <mat-card-title>Padaria: {{padaria.filial}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <p>
-                    Endereço: {{padaria.endereco}}
-                </p>
-                <p>
-                    Bairro: {{padaria.bairro}}
-                </p>            
-                <p>
-                    Cidade: {{padaria.cidade}}
-                </p>            
-                <p>
-                    Estado: {{padaria.estado}}
-                </p>
-                <p>
-                    CEP: {{padaria.cep}}
-                </p>
+                <p>Endereço: {{padaria.endereco}}</p>
+                <p>Bairro: {{padaria.bairro}}</p>            
+                <p>Cidade: {{padaria.cidade}}</p>            
+                <p>Estado: {{padaria.estado}}</p>
+                <p>CEP: {{padaria.cep}}</p>
             </mat-card-content>
         </div>
-        <mat-card-actions>
+        <mat-card-actions *ngIf="router.url === '/padarias'">
             <button color="accent" mat-raised-button (click)="edit(padaria, padaria.key)">Editar</button>
             <button color="warn" mat-raised-button (click)="delete(padaria.key)">Excluir</button>
         </mat-card-actions>

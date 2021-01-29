@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+.mat-card-image {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin: 5%;
+}
+
+.mat-card-title
+.mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.cardListClass {
+    background-color: darkblue;
+}

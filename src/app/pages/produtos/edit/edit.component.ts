@@ -28,6 +28,7 @@ export class ProdutoEditComponent implements OnInit {
         this.produto.codBarra = data.produto.codBarra;
         this.produto.validade = data.produto.validade;
         this.produto.padaria = data.produto.padaria;
+        this.produto.quantidade = data.produto.quantidade;
         this.key = data.key;
       }
     })

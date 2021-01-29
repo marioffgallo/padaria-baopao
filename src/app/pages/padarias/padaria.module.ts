@@ -14,6 +14,9 @@ import { PadariaCoreComponent } from './padaria-core/padaria-core.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+  ],
+  exports: [
+    PadariaListComponent
   ]
 })
 export class PadariaModule { }

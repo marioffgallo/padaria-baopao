@@ -2,13 +2,15 @@
     <mat-sidenav #sidenav class="sidenav" fixedInViewport="true" >
       <mat-toolbar color="primary">Menu</mat-toolbar>
       <mat-nav-list (click)="closeSideNav()">
-        <a mat-list-item [routerLink]="['/dashboard']">Dashboard</a>
+        <a *ngIf="authService.isLoggedIn == false" mat-list-item [routerLink]="['/Signin']">Sign-in</a>
         <mat-divider></mat-divider>
-        <a mat-list-item [routerLink]="['/padarias']">Cadastro de Filiais</a>
+        <a *ngIf="authService.isLoggedIn" mat-list-item [routerLink]="['/dashboard']">Dashboard</a>
         <mat-divider></mat-divider>
-        <a mat-list-item [routerLink]="['/produtos']">Cadastro de Produtos</a>
+        <a *ngIf="authService.isLoggedIn" mat-list-item [routerLink]="['/padarias']">Cadastro de Filiais</a>
         <mat-divider></mat-divider>
-        <a *ngIf="authService.isLoggedIn"mat-list-item (click)="authService.logout()">Logout</a>
+        <a *ngIf="authService.isLoggedIn" mat-list-item [routerLink]="['/produtos']">Cadastro de Produtos</a>
+        <mat-divider></mat-divider>
+        <a *ngIf="authService.isLoggedIn" mat-list-item (click)="authService.logout()">Logout</a>
         <mat-divider></mat-divider>
       </mat-nav-list>
     </mat-sidenav>

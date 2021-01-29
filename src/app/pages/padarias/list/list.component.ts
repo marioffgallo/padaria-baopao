@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Padaria } from '../shared/padaria';
 import { PadariaDataService } from '../shared/padaria-data.service';
@@ -13,7 +14,8 @@ export class PadariaListComponent implements OnInit {
   padarias!: Observable<any>;
 
   constructor(private padariaService: PadariaService,
-              private padariaDataService: PadariaDataService) { }
+              private padariaDataService: PadariaDataService,
+              public router: Router) { }
 
   ngOnInit() {
     this.padarias = this.padariaService.getAll();
