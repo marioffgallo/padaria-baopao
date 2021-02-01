@@ -10,7 +10,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class AuthService {
-  public userDetails: any;
+  public stateUser: any;
 
   constructor(public afAuth: AngularFireAuth,
               public router: Router,
@@ -19,12 +19,10 @@ export class AuthService {
 
       this.afAuth.authState.subscribe(user => {
         if (user) {
-          this.userDetails = user;
-          localStorage.setItem('user', JSON.stringify(this.userDetails));
-          JSON.parse(localStorage.getItem('user'));
+          this.stateUser = user.email ? true : false;
+          //console.log('Estado do stateUser é ' + this.stateUser);
         } else {
-          localStorage.setItem('user', null);
-          JSON.parse(localStorage.getItem('user'));
+          this.stateUser = false;
         }
       });
   }
@@ -32,8 +30,10 @@ export class AuthService {
   signInRegular(email: any, password: any) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
     .then(() => {
+      this.ngZone.run(() => {
         console.log("Usuário autenticado com sucesso");
         this.router.navigateByUrl('dashboard');
+      })
     }).catch((error) => {
       window.alert(error.message)
     })
@@ -55,21 +55,28 @@ export class AuthService {
   }
 
   updatingDatabase(userData: User){
-    this.db.list('users').push(userData)
+    var ref = this.db.database.ref();
+    var key = userData.userUid;
+    var usersRef = ref.child('users');
+
+    usersRef.child(key!).update(userData).then((result: any) =>{
+      console.log('Dados do usuário salvos no Database!');
+    });
+
+/*     this.db.list('users').push(userData)
     .then((result: any) => {
       console.log('Dados do usuário salvos no Database!');
       console.log(result.key);
-    });
+    }); */
   }
 
   get isLoggedIn() {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null) ? true : false;
+    return (this.stateUser);
   }
 
   logout() {
     return this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user');
+      this.stateUser = false;
       this.router.navigate(['sign-in']);
     })
   }

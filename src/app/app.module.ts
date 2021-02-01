@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './shared/material/material.module';
 import { PadariaModule } from './pages/padarias/padaria.module';
 import { ProdutosModule } from './pages/produtos/produtos.module';
+import { FuncionarioModule } from './pages/funcionarios/funcionarios.module'
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/login/dashboard/dashboard.component';
@@ -51,7 +52,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     AngularFireAuthModule,
     RouterModule,
     PadariaModule,
-    ProdutosModule
+    ProdutosModule,
+    FuncionarioModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

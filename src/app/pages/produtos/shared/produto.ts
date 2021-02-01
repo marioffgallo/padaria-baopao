@@ -6,5 +6,5 @@ export class Produto {
     descricao?: string;
     titulo?: string;
     padaria?: Padaria;
-    quantidade?: string;
+    quantidade?: number;
 }

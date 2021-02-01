@@ -1,55 +1,27 @@
-<!--
-<div class="container">
-
-
-  <div class="jumbotron">
-    <h1>Welcome to Dashboard</h1>
-    <p>Testar dados dos usuários</p>
-    <p *ngIf="authService.isLoggedIn">
-      <a class="btn btn-lg btn-primary" href="" role="button" (click)="authService.logout()">Logout</a>
-    </p>
-  </div>
-
-
-  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-  
-          <div class="pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">User Profile</h1>
-          </div>
-          
-          <div class="row" *ngIf="authService.userDetails as user">
-            <div class="col-md-12">
-              <div class="media">
-                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/img/dummy-user.png'}}"
-                  alt="{{user.displayName}}">
-                <div class="media-body">
-                  <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'Super Admin'}}</strong></h1>
-                  <p>User ID: <strong>{{user.uid}}</strong></p>
-                  <p>Email: <strong>{{user.email}}</strong></p>
-                  <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-        </div>
-    </main>
-
-</div>
--->
-
-<mat-card role="main">
-  <mat-card-title>Detalhes do Usuários</mat-card-title>
+<mat-card>
+  <mat-card-title class="text-style">Detalhes do Usuário</mat-card-title>
   <img mat-card-image src="{{(userToDb.photoURL) ? userToDb.photoURL : '/assets/img/dummy-user.png'}}">
   <mat-card-content>
-    <h1>Olá <strong>{{(userToDb.displayName) ? userToDb.displayName : 'Nome não definido'}}</strong></h1>
+    <h1>Bem vindo <strong>{{(userToDb.displayName) ? userToDb.displayName : 'Usuário'}}</strong></h1>
     <p>User ID: <strong>{{userToDb.userUid}}</strong></p>
     <p>Email: <strong>{{userToDb.email}}</strong></p>
   </mat-card-content>
 </mat-card>
 
-<mat-card>
+<mat-card *ngIf="authService.isLoggedIn else NoLogged">
   <love-padaria-list></love-padaria-list>
-  <love-produto-list></love-produto-list>
+  <love-produto-list></love-produto-list>  
+  <love-funcionario-list></love-funcionario-list>
 </mat-card>
+
+<ng-template #NoLogged>
+  <mat-card>
+    <div class="toasty-div">
+      <img class="toasty" src="/assets/img/toasty.jpg">
+    </div>
+    <mat-card-title class="text-style"> Usuário não esta logado, favor realizar o login clicando no botão abaixo.</mat-card-title>
+    <mat-card-actions class="toasty-div">
+      <button color="primary" mat-raised-button [routerLink]="['../sign-in']">Página de login</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>

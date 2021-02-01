@@ -1,0 +1,21 @@
+<mat-toolbar class="app-title">Funcionários Cadastrados</mat-toolbar>
+
+<div class="home-content">
+    <mat-card class="home-card" *ngFor="let funcionario of funcionarios | async">
+        <div class="card-body">
+            <mat-card-header>
+                <div mat-card-avatar></div>
+                <mat-card-title>Nome: {{funcionario.nome}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Data de Admissão: {{funcionario.dataAdmissao}}</p>
+                <p>Padaria: {{funcionario.padaria}}</p>            
+                <p>Horário de trabalho: {{funcionario.horario}}</p>            
+            </mat-card-content>
+        </div>
+        <mat-card-actions *ngIf="router.url === '/funcionarios'">
+            <button color="accent" mat-raised-button (click)="edit(funcionario, funcionario.key)">Editar</button>
+            <button color="warn" mat-raised-button (click)="delete(funcionario.key)">Excluir</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

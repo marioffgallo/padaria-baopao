@@ -44,5 +44,13 @@ export class ProdutoEditComponent implements OnInit {
     this.produto = new Produto();
     this.key = '';
   }
+
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return value;
+  }
 }
 

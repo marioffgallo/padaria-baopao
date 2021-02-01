@@ -33,6 +33,15 @@
                         <input type="text" matInput class="form-control" [(ngModel)]="produto.quantidade" name="quantidade" placeholder="Quantidade">
                     </mat-form-field>
                 </p>
+                <p>
+                    <mat-slider  thumbLabel
+                                [displayWith]="formatLabel"
+                                tickInterval="1000"
+                                min="1"
+                                max="100"
+                                [(ngModel)]="produto.quantidade" name="quantidade">
+                    </mat-slider>
+                </p>
             <mat-card-actions class="button">
                 <button type="submit" color="accent" mat-raised-button>Salvar</button>
                 <button type="reset" color="primary" mat-raised-button>Cancelar</button>
